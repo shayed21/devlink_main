@@ -395,7 +395,7 @@ export default function Home() {
             playsInline
             className="w-full h-full object-cover opacity-30"
           >
-            <source src="https://videos.pexels.com/video-files/3129957/3129957-uhd_3840_2160_30fps.mp4" type="video/mp4" />
+            <source src="https://videos.pexels.com/video-files/3195394/3195394-uhd_3840_2160_25fps.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60"></div>
         </div>
