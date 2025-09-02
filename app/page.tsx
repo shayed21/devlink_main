@@ -386,8 +386,22 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-[#0a1020] via-[#101726] to-[#0a1020] text-white overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative min-h-[80vh] md:min-h-screen flex items-center justify-center overflow-hidden px-2 md:px-0">
+        {/* Background Video */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover opacity-30"
+          >
+            <source src="https://videos.pexels.com/video-files/3129957/3129957-uhd_3840_2160_30fps.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60"></div>
+        </div>
+        
         {/* Animated Background Blobs */}
-        <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute inset-0 z-10 pointer-events-none">
           <motion.div
             className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-gradient-to-br from-blue-500/40 via-cyan-400/30 to-purple-500/30 rounded-full blur-3xl"
             animate={{ x: [0, 60, 0], y: [0, 40, 0] }}
@@ -401,7 +415,7 @@ export default function Home() {
         </div>
         {/* Hero Content */}
         <motion.div
-          className="w-full max-w-5xl mx-auto px-2 sm:px-6 lg:px-8 text-center relative z-10"
+          className="w-full max-w-5xl mx-auto px-2 sm:px-6 lg:px-8 text-center relative z-20"
           initial="hidden"
           animate="visible"
           variants={fadeInUp}
@@ -486,7 +500,7 @@ export default function Home() {
         </motion.div>
         {/* Scroll Indicator */}
         <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30"
           animate={{ y: [0, 16, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
         >

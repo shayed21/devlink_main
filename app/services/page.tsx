@@ -128,13 +128,22 @@ export default function Services() {
       <section className="py-32 relative overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover opacity-25"
+          >
+            <source src="https://videos.pexels.com/video-files/3130284/3130284-uhd_3840_2160_30fps.mp4" type="video/mp4" />
+          </video>
           <div 
-            className="w-full h-full bg-cover bg-center opacity-25"
+            className="w-full h-full bg-cover bg-center opacity-15"
             style={{
               backgroundImage: 'url(https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop)'
             }}
           ></div>
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/60 via-black/50 to-cyan-900/60"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 via-black/60 to-cyan-900/70"></div>
         </div>
         
         <div className="absolute inset-0">

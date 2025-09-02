@@ -133,13 +133,22 @@ export default function Contact() {
       <section className="py-32 relative overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover opacity-25"
+          >
+            <source src="https://videos.pexels.com/video-files/3130182/3130182-uhd_3840_2160_30fps.mp4" type="video/mp4" />
+          </video>
           <div 
-            className="w-full h-full bg-cover bg-center opacity-20"
+            className="w-full h-full bg-cover bg-center opacity-15"
             style={{
               backgroundImage: 'url(https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop)'
             }}
           ></div>
-          <div className="absolute inset-0 bg-gradient-to-br from-green-900/50 via-black/40 to-blue-900/50"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-green-900/60 via-black/50 to-blue-900/60"></div>
         </div>
         
         <div className="absolute inset-0">

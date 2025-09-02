@@ -150,13 +150,22 @@ export default function Portfolio() {
       <section className="py-32 relative overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover opacity-25"
+          >
+            <source src="https://videos.pexels.com/video-files/3191836/3191836-uhd_3840_2160_25fps.mp4" type="video/mp4" />
+          </video>
           <div 
-            className="w-full h-full bg-cover bg-center opacity-25"
+            className="w-full h-full bg-cover bg-center opacity-15"
             style={{
               backgroundImage: 'url(https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop)'
             }}
           ></div>
-          <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/50 via-black/40 to-purple-900/50"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/60 via-black/50 to-purple-900/60"></div>
         </div>
         
         <div className="absolute inset-0">
