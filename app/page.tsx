@@ -395,7 +395,7 @@ export default function Home() {
             playsInline
             className="w-full h-full object-cover opacity-30"
           >
-            <source src="https://videos.pexels.com/video-files/3195394/3195394-uhd_3840_2160_25fps.mp4" type="video/mp4" />
+            <source src="https://videos.pexels.com/video-files/3130182/3130182-uhd_3840_2160_30fps.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60"></div>
         </div>
@@ -430,7 +430,7 @@ export default function Home() {
             </span>
           </motion.div>
           <motion.h1
-            className="text-4xl sm:text-6xl md:text-7xl font-black mb-4 bg-gradient-to-r from-white via-blue-200 to-cyan-200 bg-clip-text text-transparent animate-text-glow leading-tight drop-shadow-[0_2px_24px_rgba(34,211,238,0.3)]"
+            className="text-4xl sm:text-6xl md:text-7xl font-black mb-4 bg-gradient-to-r from-white via-blue-200 to-cyan-200 bg-clip-text text-transparent leading-tight drop-shadow-[0_2px_12px_rgba(34,211,238,0.15)]"
             variants={fadeInUp}
             custom={1}
           >
