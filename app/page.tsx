@@ -385,7 +385,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0a1020] via-[#101726] to-[#0a1020] text-white overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] md:min-h-screen flex items-center justify-center overflow-hidden px-2 md:px-0">
+      <section className="relative min-h-[80vh] md:min-h-screen flex items-center justify-center overflow-hidden px-2 md:px-0 pt-20">
         {/* Background Video */}
         <div className="absolute inset-0 z-0">
           <video
