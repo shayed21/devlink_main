@@ -34,7 +34,7 @@ export function getLocalSubmissions() {
 export async function submitContactForm(formData: ContactFormData) {
   try {
     // Option 1: Use Formspree (recommended for static sites)
-    const formspreeEndpoint = 'https://formspree.io/f/YOUR_FORM_ID'; // Replace with your Formspree form ID
+    const formspreeEndpoint = 'https://formspree.io/f/meolrdpe';
     
     const response = await fetch(formspreeEndpoint, {
       method: 'POST',
