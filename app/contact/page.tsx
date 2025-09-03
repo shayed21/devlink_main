@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { submitContactForm } from '@/lib/contact';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -22,6 +23,8 @@ import {
 
 export default function Contact() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -46,8 +49,43 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
+    handleFormSubmission();
+  };
+
+  const handleFormSubmission = async () => {
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      await submitContactForm({
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        phone: formData.phone,
+        projectType: formData.projectType,
+        budget: formData.budget,
+        timeline: formData.timeline,
+        message: formData.message
+      });
+
+      setSubmitStatus('success');
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        phone: '',
+        projectType: '',
+        budget: '',
+        timeline: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -295,11 +333,35 @@ export default function Contact() {
 
                   <Button 
                     type="submit"
-                    className="w-full bg-gradient-blue hover:shadow-glow transition-all duration-300 text-lg py-6"
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-blue hover:shadow-glow transition-all duration-300 text-lg py-6 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Send Project Details
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                    {isSubmitting ? 'Sending...' : 'Send Project Details'}
+                    {!isSubmitting && <ArrowRight className="ml-2 h-5 w-5" />}
                   </Button>
+
+                  {/* Success/Error Messages */}
+                  {submitStatus === 'success' && (
+                    <div className="mt-4 p-4 bg-green-500/20 border border-green-500/30 rounded-lg">
+                      <div className="flex items-center space-x-2">
+                        <CheckCircle className="h-5 w-5 text-green-400" />
+                        <span className="text-green-300 font-medium">
+                          Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.
+                        </span>
+                      </div>
+                    </div>
+                  )}
+
+                  {submitStatus === 'error' && (
+                    <div className="mt-4 p-4 bg-red-500/20 border border-red-500/30 rounded-lg">
+                      <div className="flex items-center space-x-2">
+                        <X className="h-5 w-5 text-red-400" />
+                        <span className="text-red-300 font-medium">
+                          Sorry, there was an error sending your message. Please try again or contact us directly.
+                        </span>
+                      </div>
+                    </div>
+                  )}
                 </form>
               </CardContent>
             </Card>
