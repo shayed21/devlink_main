@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { submitContactForm } from '@/lib/contact';
+import { submitContactForm, ContactFormData } from '@/lib/contact';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -13,6 +13,7 @@ import {
   Clock,
   ArrowRight,
   CheckCircle,
+  X,
   Globe,
   MessageSquare,
   Calendar,
@@ -57,7 +58,7 @@ export default function Contact() {
     setSubmitStatus('idle');
 
     try {
-      await submitContactForm({
+      const submissionData: ContactFormData = {
         name: formData.name,
         email: formData.email,
         company: formData.company,
@@ -66,7 +67,9 @@ export default function Contact() {
         budget: formData.budget,
         timeline: formData.timeline,
         message: formData.message
-      });
+      };
+
+      await submitContactForm(submissionData);
 
       setSubmitStatus('success');
       // Reset form
@@ -346,7 +349,7 @@ export default function Contact() {
                       <div className="flex items-center space-x-2">
                         <CheckCircle className="h-5 w-5 text-green-400" />
                         <span className="text-green-300 font-medium">
-                          Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.
+                          Thank you! Your message has been received successfully. We'll get back to you within 24 hours.
                         </span>
                       </div>
                     </div>
@@ -357,7 +360,7 @@ export default function Contact() {
                       <div className="flex items-center space-x-2">
                         <X className="h-5 w-5 text-red-400" />
                         <span className="text-red-300 font-medium">
-                          Sorry, there was an error sending your message. Please try again or contact us directly.
+                          Sorry, there was an error submitting your message. Please try again or contact us directly at hello@devflink.com.
                         </span>
                       </div>
                     </div>

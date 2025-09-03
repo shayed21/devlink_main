@@ -16,12 +16,28 @@ import {
   AlertCircle,
   RefreshCw,
   Eye,
-  Filter
+  Filter,
+  Download,
+  Trash2
 } from 'lucide-react';
-import { getContactSubmissions, updateSubmissionStatus, ContactFormData } from '@/lib/contact';
+import { getLocalSubmissions } from '@/lib/contact';
+
+interface LocalSubmission {
+  id: string;
+  name: string;
+  email: string;
+  company?: string;
+  phone?: string;
+  projectType?: string;
+  budget?: string;
+  timeline?: string;
+  message: string;
+  created_at: string;
+  status: 'new' | 'contacted' | 'in_progress' | 'completed';
+}
 
 export default function AdminSubmissions() {
-  const [submissions, setSubmissions] = useState<ContactFormData[]>([]);
+  const [submissions, setSubmissions] = useState<LocalSubmission[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<'all' | 'new' | 'contacted' | 'in_progress' | 'completed'>('all');
 
@@ -29,10 +45,10 @@ export default function AdminSubmissions() {
     loadSubmissions();
   }, []);
 
-  const loadSubmissions = async () => {
+  const loadSubmissions = () => {
     try {
       setLoading(true);
-      const data = await getContactSubmissions();
+      const data = getLocalSubmissions();
       setSubmissions(data || []);
     } catch (error) {
       console.error('Error loading submissions:', error);
@@ -41,13 +57,45 @@ export default function AdminSubmissions() {
     }
   };
 
-  const handleStatusUpdate = async (id: string, status: 'new' | 'contacted' | 'in_progress' | 'completed') => {
-    try {
-      await updateSubmissionStatus(id, status);
-      await loadSubmissions(); // Refresh the list
-    } catch (error) {
-      console.error('Error updating status:', error);
-    }
+  const handleStatusUpdate = (id: string, status: 'new' | 'contacted' | 'in_progress' | 'completed') => {
+    const updatedSubmissions = submissions.map(sub => 
+      sub.id === id ? { ...sub, status } : sub
+    );
+    setSubmissions(updatedSubmissions);
+    localStorage.setItem('contact_submissions', JSON.stringify(updatedSubmissions));
+  };
+
+  const handleDelete = (id: string) => {
+    const updatedSubmissions = submissions.filter(sub => sub.id !== id);
+    setSubmissions(updatedSubmissions);
+    localStorage.setItem('contact_submissions', JSON.stringify(updatedSubmissions));
+  };
+
+  const exportToCSV = () => {
+    const headers = ['Name', 'Email', 'Company', 'Phone', 'Project Type', 'Budget', 'Timeline', 'Message', 'Status', 'Date'];
+    const csvContent = [
+      headers.join(','),
+      ...submissions.map(sub => [
+        sub.name,
+        sub.email,
+        sub.company || '',
+        sub.phone || '',
+        sub.projectType || '',
+        sub.budget || '',
+        sub.timeline || '',
+        `"${sub.message.replace(/"/g, '""')}"`,
+        sub.status,
+        new Date(sub.created_at).toLocaleDateString()
+      ].join(','))
+    ].join('\n');
+
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `contact_submissions_${new Date().toISOString().split('T')[0]}.csv`;
+    a.click();
+    window.URL.revokeObjectURL(url);
   };
 
   const getStatusColor = (status: string) => {
@@ -79,9 +127,45 @@ export default function AdminSubmissions() {
     <div className="min-h-screen bg-gradient-dark text-white pt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-white mb-4">Contact Form Submissions</h1>
-          <p className="text-gray-300">Manage and track all contact form submissions from your website.</p>
+        <div className="mb-8 flex justify-between items-center">
+          <div>
+            <h1 className="text-4xl font-bold text-white mb-4">Contact Form Submissions</h1>
+            <p className="text-gray-300">Manage and track all contact form submissions from your website.</p>
+          </div>
+          <div className="flex gap-4">
+            <Button
+              onClick={exportToCSV}
+              variant="outline"
+              className="border-gray-600 text-gray-300 hover:bg-gray-700"
+            >
+              <Download className="h-4 w-4 mr-2" />
+              Export CSV
+            </Button>
+            <Button
+              onClick={loadSubmissions}
+              variant="outline"
+              className="border-gray-600 text-gray-300 hover:bg-gray-700"
+            >
+              <RefreshCw className="h-4 w-4 mr-2" />
+              Refresh
+            </Button>
+          </div>
+        </div>
+
+        {/* Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+          <Card className="bg-card/30 backdrop-blur-sm border-white/10 text-center p-4">
+            <div className="text-2xl font-bold text-white">{submissions.length}</div>
+            <div className="text-gray-300 text-sm">Total</div>
+          </Card>
+          {['new', 'contacted', 'in_progress', 'completed'].map((status) => (
+            <Card key={status} className="bg-card/30 backdrop-blur-sm border-white/10 text-center p-4">
+              <div className="text-2xl font-bold text-white">
+                {submissions.filter(s => s.status === status).length}
+              </div>
+              <div className="text-gray-300 text-sm capitalize">{status.replace('_', ' ')}</div>
+            </Card>
+          ))}
         </div>
 
         {/* Filters */}
@@ -102,15 +186,6 @@ export default function AdminSubmissions() {
               </span>
             </button>
           ))}
-          <Button
-            onClick={loadSubmissions}
-            variant="outline"
-            size="sm"
-            className="border-gray-600 text-gray-300 hover:bg-gray-700"
-          >
-            <RefreshCw className="h-4 w-4 mr-2" />
-            Refresh
-          </Button>
         </div>
 
         {/* Submissions Grid */}
@@ -121,6 +196,9 @@ export default function AdminSubmissions() {
               <h3 className="text-xl font-semibold text-white mb-2">No submissions found</h3>
               <p className="text-gray-300">
                 {filter === 'all' ? 'No contact form submissions yet.' : `No submissions with status "${filter}".`}
+              </p>
+              <p className="text-gray-400 text-sm mt-2">
+                Submissions are stored locally in your browser during development.
               </p>
             </CardContent>
           </Card>
@@ -145,13 +223,23 @@ export default function AdminSubmissions() {
                         )}
                         <div className="flex items-center space-x-1">
                           <Calendar className="h-4 w-4" />
-                          <span>{new Date(submission.created_at!).toLocaleDateString()}</span>
+                          <span>{new Date(submission.created_at).toLocaleDateString()}</span>
                         </div>
                       </div>
                     </div>
-                    <Badge className={getStatusColor(submission.status!)}>
-                      {submission.status?.replace('_', ' ')}
-                    </Badge>
+                    <div className="flex items-center gap-2">
+                      <Badge className={getStatusColor(submission.status)}>
+                        {submission.status.replace('_', ' ')}
+                      </Badge>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => handleDelete(submission.id)}
+                        className="border-red-500/30 text-red-400 hover:bg-red-500/20"
+                      >
+                        <Trash2 className="h-4 w-4" />
+                      </Button>
+                    </div>
                   </div>
                 </CardHeader>
                 <CardContent>
@@ -163,10 +251,10 @@ export default function AdminSubmissions() {
                           <span className="text-gray-300">{submission.phone}</span>
                         </div>
                       )}
-                      {submission.project_type && (
+                      {submission.projectType && (
                         <div className="flex items-center space-x-2">
                           <Eye className="h-4 w-4 text-cyan-400" />
-                          <span className="text-gray-300">Project: {submission.project_type}</span>
+                          <span className="text-gray-300">Project: {submission.projectType}</span>
                         </div>
                       )}
                       {submission.budget && (
@@ -197,7 +285,7 @@ export default function AdminSubmissions() {
                         key={status}
                         size="sm"
                         variant={submission.status === status ? "default" : "outline"}
-                        onClick={() => handleStatusUpdate(submission.id!, status as any)}
+                        onClick={() => handleStatusUpdate(submission.id, status as any)}
                         className={`text-xs ${
                           submission.status === status 
                             ? 'bg-gradient-blue' 
@@ -213,6 +301,35 @@ export default function AdminSubmissions() {
             ))}
           </div>
         )}
+
+        {/* Instructions */}
+        <Card className="bg-blue-500/10 border-blue-500/30 mt-12">
+          <CardHeader>
+            <CardTitle className="text-white flex items-center">
+              <AlertCircle className="h-5 w-5 mr-2 text-blue-400" />
+              Development Mode
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4 text-gray-300">
+              <p>
+                <strong>Current Setup:</strong> Form submissions are stored locally in your browser during development.
+              </p>
+              <div>
+                <strong>For Production, you can use:</strong>
+                <ul className="list-disc list-inside mt-2 space-y-1 ml-4">
+                  <li><strong>Formspree:</strong> Free tier allows 50 submissions/month. Easy setup with just a form endpoint.</li>
+                  <li><strong>Netlify Forms:</strong> If deploying to Netlify, built-in form handling with email notifications.</li>
+                  <li><strong>EmailJS:</strong> Send emails directly from the frontend without a backend.</li>
+                  <li><strong>Custom API:</strong> Build your own backend API to handle form submissions.</li>
+                </ul>
+              </div>
+              <p className="text-blue-300">
+                <strong>Recommendation:</strong> Use Formspree for the easiest setup. Just sign up at formspree.io and replace the form endpoint in the code.
+              </p>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );
