@@ -23,7 +23,19 @@ import {
   Eye,
   Download
 } from 'lucide-react';
-import { getAllPosts, type BlogPostMeta } from '@/lib/blog';
+
+interface BlogPostMeta {
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  author: string;
+  category: string;
+  tags: string[];
+  featured: boolean;
+  image?: string;
+  readTime?: string;
+}
 
 interface BlogPostForm {
   title: string;
@@ -58,14 +70,8 @@ export default function BlogAdmin() {
   }, []);
 
   const loadPosts = () => {
-    try {
-      const allPosts = getAllPosts();
-      setPosts(allPosts);
-    } catch (error) {
-      console.error('Error loading posts:', error);
-      // Set sample data for demonstration
-      setSamplePosts();
-    }
+    // For static export, use sample data
+    setSamplePosts();
   };
 
   const setSamplePosts = () => {
