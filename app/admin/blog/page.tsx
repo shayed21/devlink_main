@@ -218,11 +218,11 @@ export default function BlogAdmin() {
             <div className="text-gray-300 text-sm">Featured</div>
           </Card>
           <Card className="bg-card/30 backdrop-blur-sm border-white/10 text-center p-4">
-            <div className="text-2xl font-bold text-white">{[...new Set(posts.map(p => p.category))].length}</div>
+            <div className="text-2xl font-bold text-white">{Array.from(new Set(posts.map(p => p.category))).length}</div>
             <div className="text-gray-300 text-sm">Categories</div>
           </Card>
           <Card className="bg-card/30 backdrop-blur-sm border-white/10 text-center p-4">
-            <div className="text-2xl font-bold text-white">{[...new Set(posts.flatMap(p => p.tags))].length}</div>
+            <div className="text-2xl font-bold text-white">{Array.from(new Set(posts.flatMap(p => p.tags))).length}</div>
             <div className="text-gray-300 text-sm">Tags</div>
           </Card>
         </div>
