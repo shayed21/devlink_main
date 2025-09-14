@@ -14,6 +14,11 @@ export const metadata: Metadata = {
   title: 'Dev Flink - Solutions Without Border',
   description: 'Professional software development company providing custom solutions, web & mobile apps, AI automation, and digital transformation services globally.',
   keywords: 'software development, web development, mobile apps, AI automation, digital transformation, international tech company',
+  icons: {
+    icon: '/DevFlink-Logo-V3.png',
+    shortcut: '/DevFlink-Logo-V3.png',
+    apple: '/DevFlink-Logo-V3.png',
+  },
 };
 
 export default function RootLayout({
