@@ -109,9 +109,9 @@ export function getAllPosts(): BlogPostMeta[] {
             category: data.category || 'General',
             tags: data.tags || [],
             featured: data.featured || false,
-            image: data.image,
+            image: data.image as string | undefined,
             readTime: data.readTime || '5 min read'
-          };
+          } as BlogPostMeta;
         } catch (error) {
           return null;
         }
