@@ -268,7 +268,7 @@ export async function initializeDatabase() {
   const users = readJsonFile<User>(USERS_FILE);
   if (users.length === 0) {
     const hashedPassword = await UserService.hashPassword('admin123');
-    await UserService.create({
+    const newUser = await UserService.create({
       email: 'admin@devflink.com',
       name: 'Admin User',
       password_hash: hashedPassword,
@@ -276,4 +276,12 @@ export async function initializeDatabase() {
     });
     console.log('Default admin user created: admin@devflink.com / admin123');
   }
+  
+  // Initialize other files
+  const files = [BLOG_POSTS_FILE, JOB_POSTS_FILE, APPLICATIONS_FILE, CONTACTS_FILE];
+  files.forEach(file => {
+    if (!fs.existsSync(file)) {
+      writeJsonFile(file, []);
+    }
+  });
 }

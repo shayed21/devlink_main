@@ -10,7 +10,10 @@ const nextConfig = {
   experimental: {
     forceSwcTransforms: true,
   },
-  output: 'standalone',
+  trailingSlash: true,
+  generateBuildId: async () => {
+    return 'build-' + Date.now()
+  },
 };
 
 module.exports = nextConfig;
