@@ -114,12 +114,8 @@ export default function BlogAdmin() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    handleSavePost();
-  };
-
-  const handleSavePost = () => {
-    // In a real implementation, this would save to the file system
-    // For now, we'll simulate the process
+    
+    // Simulate saving post
     console.log('Saving post:', formData);
     
     // Reset form
@@ -137,10 +133,8 @@ export default function BlogAdmin() {
     
     setIsCreating(false);
     setEditingPost(null);
-    
-    // Reload posts (in real implementation)
-    loadPosts();
   };
+
 
   const handleEdit = (post: BlogPostMeta) => {
     setFormData({

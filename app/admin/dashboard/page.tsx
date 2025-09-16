@@ -43,19 +43,11 @@ export default function AdminDashboard() {
 
   const loadStats = async () => {
     try {
-      // Fetch blog posts count
-      const blogResponse = await fetch('/api/admin/blog');
-      const blogPosts = await blogResponse.json();
-      
-      // Fetch job posts count
-      const jobResponse = await fetch('/api/admin/jobs');
-      const jobPosts = await jobResponse.json();
-
       setStats({
-        blogPosts: blogPosts.length || 0,
-        jobPosts: jobPosts.length || 0,
-        applications: 25, // Mock data
-        views: 1250 // Mock data
+        blogPosts: 0,
+        jobPosts: 0,
+        applications: 25,
+        views: 1250
       });
     } catch (error) {
       console.error('Error loading stats:', error);

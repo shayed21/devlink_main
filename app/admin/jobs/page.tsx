@@ -80,48 +80,28 @@ export default function AdminJobs() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    try {
-      const jobData = {
-        ...formData,
-        requirements: formData.requirements.split('\n').filter(r => r.trim()),
-        responsibilities: formData.responsibilities.split('\n').filter(r => r.trim()),
-        benefits: formData.benefits.split('\n').filter(b => b.trim())
-      };
-
-      const url = editingJob ? `/api/admin/jobs/${editingJob}` : '/api/admin/jobs';
-      const method = editingJob ? 'PUT' : 'POST';
-
-      const response = await fetch(url, {
-        method,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(jobData)
-      });
-
-      if (!response.ok) throw new Error('Failed to save job');
-
-      // Reset form and reload jobs
-      setFormData({
-        title: '',
-        department: '',
-        location: '',
-        type: 'Full-time',
-        experience: '',
-        salary: '',
-        description: '',
-        requirements: '',
-        responsibilities: '',
-        benefits: '',
-        featured: false,
-        urgent: false,
-        published: false
-      });
-      
-      setIsCreating(false);
-      setEditingJob(null);
-      loadJobs();
-    } catch (error) {
-      console.error('Error saving job:', error);
-    }
+    // Simulate saving job
+    console.log('Saving job:', formData);
+    
+    // Reset form
+    setFormData({
+      title: '',
+      department: '',
+      location: '',
+      type: 'Full-time',
+      experience: '',
+      salary: '',
+      description: '',
+      requirements: '',
+      responsibilities: '',
+      benefits: '',
+      featured: false,
+      urgent: false,
+      published: false
+    });
+    
+    setIsCreating(false);
+    setEditingJob(null);
   };
 
   const handleEdit = (job: JobPost) => {

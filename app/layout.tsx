@@ -1,9 +1,9 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
-import { SessionProvider } from 'next-auth/react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import ClientProviders from '@/components/ClientProviders';
 
 const poppins = Poppins({ 
   subsets: ['latin'],
@@ -30,11 +30,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <SessionProvider>
+        <ClientProviders>
           <Navigation />
           {children}
           <Footer />
-        </SessionProvider>
+        </ClientProviders>
       </body>
     </html>
   );

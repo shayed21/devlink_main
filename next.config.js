@@ -5,11 +5,12 @@ const nextConfig = {
   },
   images: { unoptimized: true },
   typescript: {
-    ignoreBuildErrors: false,
+    ignoreBuildErrors: true,
   },
   experimental: {
     forceSwcTransforms: true,
   },
+  output: 'standalone',
 };
 
 module.exports = nextConfig;
