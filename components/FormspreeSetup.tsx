@@ -67,18 +67,31 @@ export default function FormspreeSetup() {
           <div className="border-l-4 border-green-500 pl-6">
             <h3 className="text-lg font-semibold text-white mb-2">Step 3: Update Your Code</h3>
             <p className="text-gray-300 mb-4">
-              Replace the placeholder in your contact form code with your actual Formspree endpoint.
+              Replace the placeholders in your form code with your actual Formspree endpoints.
             </p>
             <div className="bg-background/50 rounded-lg p-4">
-              <p className="text-gray-300 text-sm mb-2">In <code>lib/contact.ts</code>, update line 25:</p>
+              <p className="text-gray-300 text-sm mb-2">Update these files with your Formspree form IDs:</p>
               <div className="flex items-center justify-between bg-black/30 rounded px-3 py-2">
                 <code className="text-blue-300 text-sm">
-                  const formspreeEndpoint = 'https://formspree.io/f/YOUR_FORM_ID';
+                  lib/contact.ts - YOUR_CONTACT_FORM_ID
                 </code>
                 <Button
                   size="sm"
                   variant="ghost"
-                  onClick={() => copyToClipboard("const formspreeEndpoint = 'https://formspree.io/f/YOUR_FORM_ID';")}
+                  onClick={() => copyToClipboard("lib/contact.ts - YOUR_CONTACT_FORM_ID")}
+                  className="text-gray-400 hover:text-white"
+                >
+                  <Copy className="h-4 w-4" />
+                </Button>
+              </div>
+              <div className="flex items-center justify-between bg-black/30 rounded px-3 py-2 mt-2">
+                <code className="text-blue-300 text-sm">
+                  app/careers/page.tsx - YOUR_CAREERS_FORM_ID
+                </code>
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  onClick={() => copyToClipboard("app/careers/page.tsx - YOUR_CAREERS_FORM_ID")}
                   className="text-gray-400 hover:text-white"
                 >
                   <Copy className="h-4 w-4" />
