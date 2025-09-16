@@ -264,17 +264,27 @@ export class JobService {
 export async function initializeDatabase() {
   ensureDataDirectory();
   
+  console.log('Initializing database...');
+  
   // Create default admin user if no users exist
   const users = readJsonFile<User>(USERS_FILE);
   if (users.length === 0) {
+    console.log('Creating default admin user...');
     const hashedPassword = await UserService.hashPassword('admin123');
-    const newUser = await UserService.create({
+    const defaultUser: User = {
+      id: '1',
       email: 'admin@devflink.com',
       name: 'Admin User',
       password_hash: hashedPassword,
-      role: 'admin'
-    });
+      role: 'admin',
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString()
+    };
+    
+    writeJsonFile(USERS_FILE, [defaultUser]);
     console.log('Default admin user created: admin@devflink.com / admin123');
+  } else {
+    console.log('Users already exist, skipping admin creation');
   }
   
   // Initialize other files
@@ -284,4 +294,6 @@ export async function initializeDatabase() {
       writeJsonFile(file, []);
     }
   });
+  
+  console.log('Database initialization complete');
 }

@@ -23,22 +23,30 @@ export default function AdminLogin() {
     setError('');
 
     try {
+      console.log('Attempting login with:', email);
+      
       const result = await signIn('credentials', {
         email,
         password,
         redirect: false,
       });
 
+      console.log('Login result:', result);
+
       if (result?.error) {
-        setError('Invalid email or password');
+        setError(`Login failed: ${result.error}`);
       } else {
         // Check if login was successful
         const session = await getSession();
+        console.log('Session after login:', session);
         if (session) {
           router.push('/admin/dashboard');
+        } else {
+          setError('Session creation failed');
         }
       }
     } catch (error) {
+      console.error('Login error:', error);
       setError('An error occurred. Please try again.');
     } finally {
       setIsLoading(false);

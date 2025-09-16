@@ -1,6 +1,6 @@
 import { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import { UserService } from './database';
+import { UserService, initializeDatabase } from './database';
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -16,6 +16,9 @@ export const authOptions: NextAuthOptions = {
         }
 
         try {
+          // Initialize database if needed
+          await initializeDatabase();
+          
           // Get user from file database
           const user = await UserService.findByEmail(credentials.email);
 
