@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
-import { supabaseAdmin } from '@/lib/supabase';
+import { JobService } from '@/lib/database';
 
 // PUT - Update job post
 export async function PUT(
@@ -32,32 +32,25 @@ export async function PUT(
       published
     } = body;
 
-    const { data: job, error } = await supabaseAdmin
-      .from('job_posts')
-      .update({
-        title,
-        department,
-        location,
-        type,
-        experience,
-        salary,
-        description,
-        requirements,
-        responsibilities,
-        benefits,
-        featured,
-        urgent,
-        published,
-        updated_at: new Date().toISOString(),
-      })
-      .eq('id', params.id)
-      .select()
-      .single();
+    const job = await JobService.update(params.id, {
+      title,
+      department,
+      location,
+      type,
+      experience,
+      salary,
+      description,
+      requirements,
+      responsibilities,
+      benefits,
+      featured,
+      urgent,
+      published,
+    });
 
-    if (error) {
-      throw error;
+    if (!job) {
+      return NextResponse.json({ error: 'Job post not found' }, { status: 404 });
     }
-
     return NextResponse.json(job);
   } catch (error) {
     console.error('Error updating job post:', error);
@@ -77,15 +70,11 @@ export async function DELETE(
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const { error } = await supabaseAdmin
-      .from('job_posts')
-      .delete()
-      .eq('id', params.id);
+    const deleted = await JobService.delete(params.id);
 
-    if (error) {
-      throw error;
+    if (!deleted) {
+      return NextResponse.json({ error: 'Job post not found' }, { status: 404 });
     }
-
     return NextResponse.json({ message: 'Job post deleted successfully' });
   } catch (error) {
     console.error('Error deleting job post:', error);

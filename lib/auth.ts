@@ -1,7 +1,6 @@
 import { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import { supabaseAdmin } from './supabase';
-import bcrypt from 'bcryptjs';
+import { UserService } from './database';
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -17,19 +16,15 @@ export const authOptions: NextAuthOptions = {
         }
 
         try {
-          // Get user from database
-          const { data: user, error } = await supabaseAdmin
-            .from('users')
-            .select('*')
-            .eq('email', credentials.email)
-            .single();
+          // Get user from file database
+          const user = await UserService.findByEmail(credentials.email);
 
-          if (error || !user) {
+          if (!user) {
             return null;
           }
 
           // Verify password
-          const isValidPassword = await bcrypt.compare(credentials.password, user.password_hash);
+          const isValidPassword = await UserService.verifyPassword(credentials.password, user.password_hash);
           
           if (!isValidPassword) {
             return null;

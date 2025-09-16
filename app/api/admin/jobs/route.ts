@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
-import { supabaseAdmin } from '@/lib/supabase';
+import { JobService } from '@/lib/database';
 
 // GET - Fetch all job posts
 export async function GET() {
@@ -12,14 +12,7 @@ export async function GET() {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const { data: jobs, error } = await supabaseAdmin
-      .from('job_posts')
-      .select('*')
-      .order('created_at', { ascending: false });
-
-    if (error) {
-      throw error;
-    }
+    const jobs = await JobService.getAll();
 
     return NextResponse.json(jobs);
   } catch (error) {
@@ -54,29 +47,21 @@ export async function POST(request: NextRequest) {
       published
     } = body;
 
-    const { data: job, error } = await supabaseAdmin
-      .from('job_posts')
-      .insert({
-        title,
-        department,
-        location,
-        type,
-        experience,
-        salary,
-        description,
-        requirements,
-        responsibilities,
-        benefits,
-        featured: featured || false,
-        urgent: urgent || false,
-        published: published || false,
-      })
-      .select()
-      .single();
-
-    if (error) {
-      throw error;
-    }
+    const job = await JobService.create({
+      title,
+      department,
+      location,
+      type,
+      experience,
+      salary,
+      description,
+      requirements,
+      responsibilities,
+      benefits,
+      featured: featured || false,
+      urgent: urgent || false,
+      published: published || false,
+    });
 
     return NextResponse.json(job, { status: 201 });
   } catch (error) {

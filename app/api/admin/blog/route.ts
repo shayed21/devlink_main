@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
-import { supabaseAdmin } from '@/lib/supabase';
+import { BlogService } from '@/lib/database';
 
 // GET - Fetch all blog posts
 export async function GET() {
@@ -12,14 +12,7 @@ export async function GET() {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const { data: posts, error } = await supabaseAdmin
-      .from('blog_posts')
-      .select('*')
-      .order('created_at', { ascending: false });
-
-    if (error) {
-      throw error;
-    }
+    const posts = await BlogService.getAll();
 
     return NextResponse.json(posts);
   } catch (error) {
@@ -56,27 +49,19 @@ export async function POST(request: NextRequest) {
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/(^-|-$)/g, '');
 
-    const { data: post, error } = await supabaseAdmin
-      .from('blog_posts')
-      .insert({
-        title,
-        slug,
-        excerpt,
-        content,
-        author: session.user.name,
-        category,
-        tags,
-        featured: featured || false,
-        image,
-        read_time: read_time || '5 min read',
-        published: published || false,
-      })
-      .select()
-      .single();
-
-    if (error) {
-      throw error;
-    }
+    const post = await BlogService.create({
+      title,
+      slug,
+      excerpt,
+      content,
+      author: session.user.name,
+      category,
+      tags,
+      featured: featured || false,
+      image,
+      read_time: read_time || '5 min read',
+      published: published || false,
+    });
 
     return NextResponse.json(post, { status: 201 });
   } catch (error) {

@@ -1,18 +1,10 @@
 import { NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import { JobService } from '@/lib/database';
 
 // GET - Fetch published job posts for public website
 export async function GET() {
   try {
-    const { data: jobs, error } = await supabase
-      .from('job_posts')
-      .select('*')
-      .eq('published', true)
-      .order('created_at', { ascending: false });
-
-    if (error) {
-      throw error;
-    }
+    const jobs = await JobService.getPublished();
 
     return NextResponse.json(jobs);
   } catch (error) {

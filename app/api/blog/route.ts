@@ -1,18 +1,10 @@
 import { NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import { BlogService } from '@/lib/database';
 
 // GET - Fetch published blog posts for public website
 export async function GET() {
   try {
-    const { data: posts, error } = await supabase
-      .from('blog_posts')
-      .select('*')
-      .eq('published', true)
-      .order('created_at', { ascending: false });
-
-    if (error) {
-      throw error;
-    }
+    const posts = await BlogService.getPublished();
 
     return NextResponse.json(posts);
   } catch (error) {

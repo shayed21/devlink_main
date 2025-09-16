@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
-import { supabaseAdmin } from '@/lib/supabase';
+import { BlogService } from '@/lib/database';
 
 // PUT - Update blog post
 export async function PUT(
@@ -34,29 +34,22 @@ export async function PUT(
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/(^-|-$)/g, '');
 
-    const { data: post, error } = await supabaseAdmin
-      .from('blog_posts')
-      .update({
-        title,
-        slug,
-        excerpt,
-        content,
-        category,
-        tags,
-        featured,
-        image,
-        read_time,
-        published,
-        updated_at: new Date().toISOString(),
-      })
-      .eq('id', params.id)
-      .select()
-      .single();
+    const post = await BlogService.update(params.id, {
+      title,
+      slug,
+      excerpt,
+      content,
+      category,
+      tags,
+      featured,
+      image,
+      read_time,
+      published,
+    });
 
-    if (error) {
-      throw error;
+    if (!post) {
+      return NextResponse.json({ error: 'Blog post not found' }, { status: 404 });
     }
-
     return NextResponse.json(post);
   } catch (error) {
     console.error('Error updating blog post:', error);
@@ -76,15 +69,11 @@ export async function DELETE(
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const { error } = await supabaseAdmin
-      .from('blog_posts')
-      .delete()
-      .eq('id', params.id);
+    const deleted = await BlogService.delete(params.id);
 
-    if (error) {
-      throw error;
+    if (!deleted) {
+      return NextResponse.json({ error: 'Blog post not found' }, { status: 404 });
     }
-
     return NextResponse.json({ message: 'Blog post deleted successfully' });
   } catch (error) {
     console.error('Error deleting blog post:', error);

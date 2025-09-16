@@ -21,7 +21,7 @@ import {
   Eye,
   EyeOff
 } from 'lucide-react';
-import { JobPost } from '@/lib/supabase';
+import { JobPost } from '@/lib/database';
 
 export default function AdminJobs() {
   const { data: session, status } = useSession();
