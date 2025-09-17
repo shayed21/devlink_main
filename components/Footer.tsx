@@ -77,40 +77,40 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative bg-black/40 backdrop-blur-lg border-t border-white/10 overflow-hidden">
+    <footer className="relative glass-card-dark border-t border-white/10 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl animate-float" style={{animationDelay: '3s'}}></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-float" style={{animationDelay: '3s'}}></div>
       </div>
 
       <div className="relative z-10">
         {/* Newsletter Section */}
-        <div className="border-b border-white/10 py-16">
+        <div className="border-b border-white/10 py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              <h3 className="text-4xl md:text-5xl font-bold gradient-text-blue mb-6">
                 Stay Updated with Dev Flink
               </h3>
-              <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+              <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
                 Get the latest insights on technology trends, development best practices, and exclusive updates on our projects.
               </p>
             </div>
             
-            <form onSubmit={handleNewsletterSubmit} className="max-w-md mx-auto">
-              <div className="flex gap-3">
+            <form onSubmit={handleNewsletterSubmit} className="max-w-lg mx-auto">
+              <div className="flex gap-4">
                 <Input
                   type="email"
                   placeholder="Enter your email address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 flex-1"
+                  className="glass-card border-white/20 text-white placeholder:text-gray-400 flex-1 py-4 px-6 text-lg rounded-xl"
                 />
                 <Button 
                   type="submit"
-                  className="bg-gradient-blue hover:shadow-glow transition-all duration-300 px-6"
+                  className="bg-gradient-blue hover:shadow-glow-lg transition-all duration-300 px-8 py-4 rounded-xl hover-lift"
                 >
-                  <Send className="h-4 w-4" />
+                  <Send className="h-5 w-5" />
                 </Button>
               </div>
             </form>
@@ -118,7 +118,7 @@ export default function Footer() {
         </div>
 
         {/* Main Footer Content */}
-        <div className="py-16">
+        <div className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-6 gap-12">
               {/* Company Info */}
@@ -129,27 +129,27 @@ export default function Footer() {
                     alt="Dev Flink Logo" 
                     width={350} 
                     height={50}
-                    className="w-35 h-35 hover:scale-1100 transition-transform duration-300"
+                    className="w-40 h-16 hover:scale-110 transition-transform duration-300 drop-shadow-lg"
                   />
               
                 </Link>
                 
-                <p className="text-gray-300 mb-6 leading-relaxed">
+                <p className="text-gray-300 mb-8 leading-relaxed text-lg">
                   Empowering businesses worldwide with innovative software solutions that transcend geographical boundaries. 
                   We deliver excellence through collaboration, innovation, and unwavering commitment to quality.
                 </p>
                 
-                <div className="flex space-x-4">
+                <div className="flex space-x-5">
                   {socialLinks.map((social, index) => (
                     <a
                       key={index}
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-white/10 hover:bg-gradient-blue p-3 rounded-lg transition-all duration-300 hover:scale-110 hover:shadow-glow group"
+                      className="glass-card hover:bg-gradient-blue p-4 rounded-xl transition-all duration-300 hover-lift hover:shadow-glow group"
                       aria-label={social.label}
                     >
-                      <social.icon className="h-5 w-5 text-gray-300 group-hover:text-white transition-colors" />
+                      <social.icon className="h-6 w-6 text-gray-300 group-hover:text-white transition-colors" />
                     </a>
                   ))}
                 </div>
@@ -157,13 +157,13 @@ export default function Footer() {
 
               {/* Links Sections */}
               <div>
-                <h4 className="text-white font-semibold text-lg mb-6">Company</h4>
+                <h4 className="text-white font-bold text-xl mb-8">Company</h4>
                 <ul className="space-y-3">
                   {footerLinks.company.map((link, index) => (
                     <li key={index}>
                       <Link 
                         href={link.href}
-                        className="text-gray-300 hover:text-blue-400 transition-colors duration-300 hover:translate-x-1 transform inline-block"
+                        className="text-gray-300 hover:text-blue-400 transition-all duration-300 hover:translate-x-2 transform inline-block text-lg"
                       >
                         {link.name}
                       </Link>
@@ -173,13 +173,13 @@ export default function Footer() {
               </div>
 
               <div>
-                <h4 className="text-white font-semibold text-lg mb-6">Services</h4>
+                <h4 className="text-white font-bold text-xl mb-8">Services</h4>
                 <ul className="space-y-3">
                   {footerLinks.services.map((link, index) => (
                     <li key={index}>
                       <Link 
                         href={link.href}
-                        className="text-gray-300 hover:text-blue-400 transition-colors duration-300 hover:translate-x-1 transform inline-block"
+                        className="text-gray-300 hover:text-blue-400 transition-all duration-300 hover:translate-x-2 transform inline-block text-lg"
                       >
                         {link.name}
                       </Link>
@@ -189,13 +189,13 @@ export default function Footer() {
               </div>
 
               <div>
-                <h4 className="text-white font-semibold text-lg mb-6">Resources</h4>
+                <h4 className="text-white font-bold text-xl mb-8">Resources</h4>
                 <ul className="space-y-3">
                   {footerLinks.resources.map((link, index) => (
                     <li key={index}>
                       <Link 
                         href={link.href}
-                        className="text-gray-300 hover:text-blue-400 transition-colors duration-300 hover:translate-x-1 transform inline-block"
+                        className="text-gray-300 hover:text-blue-400 transition-all duration-300 hover:translate-x-2 transform inline-block text-lg"
                       >
                         {link.name}
                       </Link>
@@ -205,13 +205,13 @@ export default function Footer() {
               </div>
 
               <div>
-                <h4 className="text-white font-semibold text-lg mb-6">Legal</h4>
+                <h4 className="text-white font-bold text-xl mb-8">Legal</h4>
                 <ul className="space-y-3">
                   {footerLinks.legal.map((link, index) => (
                     <li key={index}>
                       <Link 
                         href={link.href}
-                        className="text-gray-300 hover:text-blue-400 transition-colors duration-300 hover:translate-x-1 transform inline-block"
+                        className="text-gray-300 hover:text-blue-400 transition-all duration-300 hover:translate-x-2 transform inline-block text-lg"
                       >
                         {link.name}
                       </Link>
@@ -222,17 +222,17 @@ export default function Footer() {
             </div>
 
             {/* Global Offices */}
-            <div className="mt-16 pt-12 border-t border-white/10">
-              <h4 className="text-white font-semibold text-xl mb-8 text-center">Global Offices</h4>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="mt-20 pt-16 border-t border-white/10">
+              <h4 className="text-white font-bold text-2xl mb-12 text-center gradient-text-blue">Global Offices</h4>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {offices.map((office, index) => (
                   <div 
                     key={index}
-                    className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-center hover:shadow-glow hover:scale-105 transition-all duration-300 group"
+                    className="glass-card rounded-2xl p-8 text-center hover-lift group"
                   >
-                    <Globe className="h-8 w-8 text-blue-400 mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
-                    <div className="text-white font-semibold text-lg">{office.city}</div>
-                    <div className="text-blue-300 text-sm mb-2">{office.country}</div>
+                    <Globe className="h-10 w-10 text-blue-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
+                    <div className="text-white font-bold text-xl mb-2">{office.city}</div>
+                    <div className="text-blue-300 text-base mb-3">{office.country}</div>
                     <div className="text-gray-400 text-sm">{office.phone}</div>
                   </div>
                 ))}
@@ -242,15 +242,15 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/10 py-8">
+        <div className="border-t border-white/10 py-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <div className="flex items-center space-x-2 text-gray-300">
+              <div className="flex items-center space-x-2 text-gray-300 text-lg">
                 <span>© 2025 Dev Flink. Made with</span>
                 <span>for global innovation.</span>
               </div>
               
-              <div className="flex items-center space-x-6 text-sm text-gray-400">
+              <div className="flex items-center space-x-8 text-base text-gray-400">
                 <span>🌍 Serving 25+ Countries</span>
                 <span>⚡ 99.9% Uptime</span>
                 <span>🔒 ISO 27001 Certified</span>

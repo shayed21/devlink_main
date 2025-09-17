@@ -386,65 +386,74 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-[#0a1020] via-[#101726] to-[#0a1020] text-white overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative min-h-[80vh] md:min-h-screen flex items-center justify-center overflow-hidden px-2 md:px-0 pt-20">
-        {/* Background Video */}
+        {/* Enhanced Background Effects */}
         <div className="absolute inset-0 z-0">
+          {/* Aurora Effect */}
+          <div className="absolute top-1/2 left-1/2 w-[800px] h-[800px] bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-cyan-500/20 rounded-full blur-3xl animate-aurora"></div>
+          
+          {/* Particle System */}
+          <div className="particles">
+            {[...Array(20)].map((_, i) => (
+              <div
+                key={i}
+                className="particle"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                  animationDelay: `${Math.random() * 8}s`,
+                  animationDuration: `${8 + Math.random() * 4}s`
+                }}
+              />
+            ))}
+          </div>
+        </div>
+        
+        {/* Background Video */}
+        <div className="absolute inset-0 z-5">
           <video
             autoPlay
             muted
             loop
             playsInline
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full object-cover opacity-20"
           >
             <source src="https://videos.pexels.com/video-files/3130182/3130182-uhd_3840_2160_30fps.mp4" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70"></div>
         </div>
         
-        {/* Animated Background Blobs */}
-        <div className="absolute inset-0 z-10 pointer-events-none">
-          <motion.div
-            className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-gradient-to-br from-blue-500/40 via-cyan-400/30 to-purple-500/30 rounded-full blur-3xl"
-            animate={{ x: [0, 60, 0], y: [0, 40, 0] }}
-            transition={{ repeat: Infinity, duration: 12, ease: "easeInOut" }}
-          />
-          <motion.div
-            className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-gradient-to-br from-cyan-500/30 via-blue-700/20 to-purple-500/30 rounded-full blur-3xl"
-            animate={{ x: [0, -60, 0], y: [0, -40, 0] }}
-            transition={{ repeat: Infinity, duration: 14, ease: "easeInOut" }}
-          />
-        </div>
         {/* Hero Content */}
         <motion.div
-          className="w-full max-w-5xl mx-auto px-2 sm:px-6 lg:px-8 text-center relative z-20"
+          className="w-full max-w-6xl mx-auto px-2 sm:px-6 lg:px-8 text-center relative z-20"
           initial="hidden"
           animate="visible"
           variants={fadeInUp}
         >
           <motion.div
-            className="inline-block bg-gradient-to-r from-blue-500/30 to-cyan-500/30 backdrop-blur-lg border border-blue-400/30 rounded-full px-6 py-3 mb-4 shadow-lg"
+            className="inline-block glass-card rounded-full px-8 py-4 mb-6 shadow-glow animate-neon-glow"
             variants={fadeInUp}
             custom={0}
           >
-            <span className="text-blue-200 font-semibold text-xs md:text-base tracking-widest uppercase">
+            <span className="gradient-text-blue font-bold text-sm md:text-base tracking-widest uppercase">
               Transforming Ideas into Digital Reality
             </span>
           </motion.div>
           <motion.h1
-            className="text-4xl sm:text-6xl md:text-7xl font-black mb-4 bg-gradient-to-r from-white via-blue-200 to-cyan-200 bg-clip-text text-transparent leading-tight drop-shadow-[0_2px_12px_rgba(34,211,238,0.15)]"
+            className="text-5xl sm:text-7xl md:text-8xl font-black mb-6 gradient-text-blue leading-tight animate-text-glow text-shadow"
             variants={fadeInUp}
             custom={1}
           >
-            We Build <span className="text-cyan-400">Future-Ready</span> Software Without Borders
+            We Build <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">Future-Ready</span> Software Without Borders
           </motion.h1>
           <motion.p
-            className="text-lg md:text-2xl font-light mb-6 text-blue-100 tracking-wide"
+            className="text-xl md:text-3xl font-medium mb-8 text-gray-200 tracking-wide max-w-4xl mx-auto"
             variants={fadeInUp}
             custom={2}
           >
-            Global software development company delivering innovative digital solutions worldwide.
+            Global software development company delivering <span className="gradient-text-blue font-semibold">innovative digital solutions</span> worldwide.
           </motion.p>
           <motion.p
-            className="text-base md:text-lg font-light mb-8 text-blue-100 tracking-wide leading-relaxed max-w-3xl md:max-w-4xl mx-auto"
+            className="text-lg md:text-xl font-light mb-10 text-gray-300 tracking-wide leading-relaxed max-w-4xl mx-auto"
             variants={fadeInUp}
             custom={3}
           >
@@ -452,14 +461,14 @@ export default function Home() {
           </motion.p>
           {/* CTA Buttons */}
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10"
+            className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12"
             variants={fadeInUp}
             custom={4}
           >
             <Link href="/contact">
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-blue-500 to-cyan-400 hover:from-blue-600 hover:to-cyan-500 shadow-xl px-10 py-5 rounded-xl font-bold text-lg transition-all duration-300 animate-glow-pulse"
+                className="bg-gradient-blue hover:shadow-glow-lg shadow-glow px-12 py-6 rounded-2xl font-bold text-xl transition-all duration-300 hover-lift animate-gradient-shift"
               >
                 Start Your Project
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -469,7 +478,7 @@ export default function Home() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-blue-400/60 text-blue-200 hover:bg-blue-500/20 text-lg px-10 py-5 rounded-xl font-bold backdrop-blur-xl"
+                className="glass-card border-2 border-blue-400/60 text-blue-200 hover:bg-blue-500/20 text-xl px-12 py-6 rounded-2xl font-bold hover-lift"
               >
                 View Our Work
               </Button>
@@ -477,35 +486,35 @@ export default function Home() {
           </motion.div>
           {/* Stats Grid */}
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8"
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8"
             variants={fadeInUp}
             custom={5}
           >
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
-                className={`${cardBg} ${cardBorder} ${cardShadow} rounded-2xl p-8 flex flex-col items-center hover:scale-105 transition-transform duration-300`}
-                whileHover={{ scale: 1.07, boxShadow: "0 0 32px #1e293b33" }}
+                className="glass-card rounded-2xl p-8 flex flex-col items-center hover-lift group"
+                whileHover={{ scale: 1.08 }}
                 variants={fadeInUp}
                 custom={6 + index}
               >
                 <span className="mb-2">
-                  <stat.icon className="h-8 w-8 text-blue-400" />
+                  <stat.icon className="h-10 w-10 text-blue-400 group-hover:text-cyan-400 transition-colors duration-300" />
                 </span>
-                <div className="text-2xl font-black text-white mb-1">{stat.number}</div>
-                <div className="text-blue-100 font-semibold text-sm">{stat.label}</div>
+                <div className="text-3xl font-black gradient-text-blue mb-2">{stat.number}</div>
+                <div className="text-gray-200 font-semibold text-sm text-center">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
         </motion.div>
         {/* Scroll Indicator */}
         <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30"
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-30"
           animate={{ y: [0, 16, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
         >
-          <div className="w-7 h-12 border-2 border-blue-400 rounded-full flex justify-center items-start">
-            <div className="w-1 h-3 bg-blue-400 rounded-full mt-2 animate-pulse"></div>
+          <div className="w-8 h-14 border-2 border-blue-400 rounded-full flex justify-center items-start glass-card">
+            <div className="w-1.5 h-4 bg-gradient-blue rounded-full mt-3 animate-pulse"></div>
           </div>
         </motion.div>
       </section>

@@ -23,34 +23,34 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-black/20 backdrop-blur-lg border-b border-white/10">
+    <nav className="fixed top-0 w-full z-50 glass-card border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-18">
           <Link href="/" className="flex items-center">
             <Image 
               src="/DevFlink-Logo-V2.png" 
               alt="Dev Flink Logo" 
               width={250} 
               height={250}
-              className="w-29 h-20 hover:scale-110 transition-transform duration-300"
+              className="w-32 h-20 hover:scale-110 transition-transform duration-300 drop-shadow-lg"
             />
           </Link>
           
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-10">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-sm font-medium transition-colors hover:text-blue-400 ${
-                  pathname === item.href ? 'text-blue-400' : 'text-gray-300'
+                className={`text-sm font-semibold transition-all duration-300 hover:text-blue-400 hover:scale-105 ${
+                  pathname === item.href ? 'text-blue-400 font-bold' : 'text-gray-200'
                 }`}
               >
                 {item.name}
               </Link>
             ))}
             <Link href="/contact">
-              <Button className="bg-gradient-blue hover:shadow-glow transition-all duration-300">
+              <Button className="bg-gradient-blue hover:shadow-glow-lg transition-all duration-300 hover-lift font-semibold">
                 Get Started
               </Button>
             </Link>
@@ -60,7 +60,7 @@ export default function Navigation() {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-300 hover:text-white"
+              className="text-gray-200 hover:text-white transition-colors duration-300"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -70,14 +70,14 @@ export default function Navigation() {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-black/90 backdrop-blur-lg border-t border-white/10">
+        <div className="md:hidden glass-card-dark border-t border-white/10">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
                 onClick={() => setIsMenuOpen(false)}
-                className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-blue-400 w-full text-left"
+                className="block px-4 py-3 text-base font-medium text-gray-200 hover:text-blue-400 hover:bg-white/5 rounded-lg transition-all duration-300 w-full text-left"
               >
                 {item.name}
               </Link>
