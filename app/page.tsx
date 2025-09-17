@@ -439,7 +439,7 @@ export default function Home() {
             </span>
           </motion.div>
           <motion.h1
-            className="text-5xl sm:text-7xl md:text-8xl font-black mb-6 gradient-text-blue leading-tight animate-text-glow text-shadow"
+            className="text-5xl sm:text-7xl md:text-8xl font-black mb-6 gradient-text-blue leading-tight"
             variants={fadeInUp}
             custom={1}
           >

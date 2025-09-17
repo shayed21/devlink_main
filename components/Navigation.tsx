@@ -30,9 +30,9 @@ export default function Navigation() {
             <Image 
               src="/DevFlink-Logo-V2.png" 
               alt="Dev Flink Logo" 
-              width={250} 
-              height={250}
-              className="w-32 h-20 hover:scale-110 transition-transform duration-300 drop-shadow-lg"
+              width={180} 
+              height={60}
+              className="w-28 h-12 hover:scale-105 transition-transform duration-200"
             />
           </Link>
           

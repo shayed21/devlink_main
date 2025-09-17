@@ -27,9 +27,9 @@ const config: Config = {
         sm: 'calc(var(--radius) - 4px)',
       },
       boxShadow: {
-        'glow': '0 0 20px rgba(59, 130, 246, 0.4), 0 0 40px rgba(59, 130, 246, 0.2)',
-        'glow-lg': '0 0 40px rgba(59, 130, 246, 0.5), 0 0 80px rgba(6, 182, 212, 0.3)',
-        'glow-purple': '0 0 20px rgba(139, 92, 246, 0.4), 0 0 40px rgba(139, 92, 246, 0.2)',
+        'glow': '0 0 10px rgba(59, 130, 246, 0.2), 0 0 20px rgba(59, 130, 246, 0.1)',
+        'glow-lg': '0 0 20px rgba(59, 130, 246, 0.3), 0 0 40px rgba(6, 182, 212, 0.2)',
+        'glow-purple': '0 0 10px rgba(139, 92, 246, 0.2), 0 0 20px rgba(139, 92, 246, 0.1)',
         'dark': '0 25px 50px -12px rgba(0, 0, 0, 0.8)',
         'glass': '0 8px 32px rgba(0, 0, 0, 0.3)',
         'neon': '0 0 5px theme(colors.blue.400), 0 0 20px theme(colors.blue.400), 0 0 35px theme(colors.blue.400)',

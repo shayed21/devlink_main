@@ -127,9 +127,9 @@ export default function Footer() {
                   <Image 
                     src="/DevFlink-Logo-V2.png" 
                     alt="Dev Flink Logo" 
-                    width={350} 
-                    height={50}
-                    className="w-40 h-16 hover:scale-110 transition-transform duration-300 drop-shadow-lg"
+                    width={200} 
+                    height={40}
+                    className="w-32 h-10 hover:scale-105 transition-transform duration-200"
                   />
               
                 </Link>
