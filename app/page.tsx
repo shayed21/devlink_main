@@ -4,38 +4,7 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { 
-  ArrowRight, 
-  CheckCircle, 
-  Users, 
-  Award, 
-  Zap,
-  Globe,
-  Code,
-  Smartphone,
-  Bot,
-  Search,
-  TrendingUp,
-  Shield,
-  Clock,
-  Star,
-  Rocket,
-  Target,
-  Database,
-  Cloud,
-  Monitor,
-  Heart,
-  ExternalLink,
-  Play,
-  Quote,
-  Building,
-  DollarSign,
-  BarChart,
-  Lightbulb,
-  Headphones,
-  FileText,
-  Calendar
-} from 'lucide-react';
+import { ArrowRight, CircleCheck as CheckCircle, Users, Award, Zap, Globe, Code, Smartphone, Bot, Search, TrendingUp, Shield, Clock, Star, Rocket, Target, Database, Cloud, Monitor, Heart, ExternalLink, Play, Quote, Building, DollarSign, ChartBar as BarChart, Lightbulb, Headphones, FileText, Calendar } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from "framer-motion";
 
