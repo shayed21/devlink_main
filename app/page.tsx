@@ -503,7 +503,6 @@ export default function Home() {
             variants={fadeInUp}
           >
             <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-900 to-indigo-900 bg-clip-text text-transparent">
-            <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-[#2992FD] to-[#A9D0FD] bg-clip-text text-transparent">
               Our Core Services
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
@@ -576,7 +575,6 @@ export default function Home() {
             variants={fadeInUp}
           >
             <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-900 to-indigo-900 bg-clip-text text-transparent">
-            <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-[#2992FD] to-[#A9D0FD] bg-clip-text text-transparent">
               Why Choose Dev Flink?
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -620,7 +618,6 @@ export default function Home() {
             variants={fadeInUp}
           >
             <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-900 to-indigo-900 bg-clip-text text-transparent">
-            <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-[#2992FD] to-[#A9D0FD] bg-clip-text text-transparent">
               Success Stories
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -681,7 +678,6 @@ export default function Home() {
             variants={fadeInUp}
           >
             <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-900 via-indigo-900 to-blue-800 bg-clip-text text-transparent">
-            <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-[#2992FD] via-[#A9D0FD] to-[#2992FD] bg-clip-text text-transparent">
               Technologies We Use
             </h2>
             <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
@@ -745,7 +741,6 @@ export default function Home() {
             variants={fadeInUp}
           >
             <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-900 to-indigo-900 bg-clip-text text-transparent">
-            <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-[#2992FD] to-[#A9D0FD] bg-clip-text text-transparent">
               Our Development Process
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -790,7 +785,6 @@ export default function Home() {
             variants={fadeInUp}
           >
             <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-900 to-indigo-900 bg-clip-text text-transparent">
-            <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-[#2992FD] to-[#A9D0FD] bg-clip-text text-transparent">
               What Our Clients Say
             </h2>
             <p className="text-xl text-gray-300">
@@ -808,7 +802,6 @@ export default function Home() {
               <CardContent className="p-12">
                 <div className="text-center">
                   <Quote className="h-12 w-12 text-blue-400 mx-auto mb-6" />
-                 <Quote className="h-12 w-12 text-[#2992FD] mx-auto mb-6" />
                   <motion.p
                     className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed italic"
                     key={currentTestimonial}
