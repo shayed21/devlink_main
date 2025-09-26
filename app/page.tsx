@@ -408,21 +408,21 @@ export default function Home() {
             </span>
           </motion.div>
           <motion.h1
-            className="text-5xl sm:text-7xl md:text-8xl font-black mb-6 bg-gradient-to-r from-blue-900 to-indigo-900 bg-clip-text text-transparent leading-tight"
+            className="text-5xl sm:text-7xl md:text-8xl font-black mb-6 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent leading-tight"
             variants={fadeInUp}
             custom={1}
           >
-            We Build <span className="bg-gradient-to-r from-blue-800 to-indigo-800 bg-clip-text text-transparent">Future-Ready</span> Software Without Borders
+            We Build <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent">Future-Ready</span> Software Without Borders
           </motion.h1>
           <motion.p
-            className="text-xl md:text-3xl font-medium mb-8 text-gray-200 tracking-wide max-w-4xl mx-auto"
+            className="text-xl md:text-3xl font-medium mb-8 text-gray-100 tracking-wide max-w-4xl mx-auto"
             variants={fadeInUp}
             custom={2}
           >
-            Global software development company delivering <span className="gradient-text-blue font-semibold">innovative digital solutions</span> worldwide.
+            Global software development company delivering <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent font-semibold">innovative digital solutions</span> worldwide.
           </motion.p>
           <motion.p
-            className="text-lg md:text-xl font-light mb-10 text-gray-300 tracking-wide leading-relaxed max-w-4xl mx-auto"
+            className="text-lg md:text-xl font-light mb-10 text-gray-200 tracking-wide leading-relaxed max-w-4xl mx-auto"
             variants={fadeInUp}
             custom={3}
           >
@@ -470,8 +470,8 @@ export default function Home() {
                 <span className="mb-2">
                   <stat.icon className="h-10 w-10 text-blue-400 group-hover:text-cyan-400 transition-colors duration-300" />
                 </span>
-                <div className="text-3xl font-black gradient-text-blue mb-2">{stat.number}</div>
-                <div className="text-gray-200 font-semibold text-sm text-center">{stat.label}</div>
+                <div className="text-3xl font-black bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent mb-2">{stat.number}</div>
+                <div className="text-gray-100 font-semibold text-sm text-center">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>

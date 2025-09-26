@@ -35,6 +35,11 @@ const config: Config = {
         'neon': '0 0 5px theme(colors.blue.400), 0 0 20px theme(colors.blue.400), 0 0 35px theme(colors.blue.400)',
       },
       colors: {
+        'light-blue': {
+          400: '#60a5fa',
+          500: '#3b82f6',
+          600: '#2563eb',
+        },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
