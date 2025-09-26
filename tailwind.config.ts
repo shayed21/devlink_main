@@ -16,7 +16,7 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'gradient-blue': 'linear-gradient(135deg, #3b82f6 0%, #06b6d4 50%, #8b5cf6 100%)',
+        'gradient-blue': 'linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #3730a3 100%)',
         'gradient-purple': 'linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%)',
         'gradient-dark': 'radial-gradient(ellipse 80% 80% at 50% -20%, rgba(120, 119, 198, 0.3), transparent), linear-gradient(180deg, #0a0a0f 0%, #0f0f23 50%, #1a1a2e 100%)',
         'gradient-mesh': 'radial-gradient(at 40% 20%, hsla(228, 100%, 74%, 1) 0px, transparent 50%), radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 1) 0px, transparent 50%), radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 1) 0px, transparent 50%)',

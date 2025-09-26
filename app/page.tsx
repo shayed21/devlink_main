@@ -439,11 +439,11 @@ export default function Home() {
             </span>
           </motion.div>
           <motion.h1
-            className="text-5xl sm:text-7xl md:text-8xl font-black mb-6 gradient-text-blue leading-tight"
+            className="text-5xl sm:text-7xl md:text-8xl font-black mb-6 bg-gradient-to-r from-blue-900 to-indigo-900 bg-clip-text text-transparent leading-tight"
             variants={fadeInUp}
             custom={1}
           >
-            We Build <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">Future-Ready</span> Software Without Borders
+            We Build <span className="bg-gradient-to-r from-blue-800 to-indigo-800 bg-clip-text text-transparent">Future-Ready</span> Software Without Borders
           </motion.h1>
           <motion.p
             className="text-xl md:text-3xl font-medium mb-8 text-gray-200 tracking-wide max-w-4xl mx-auto"
@@ -533,7 +533,7 @@ export default function Home() {
             viewport={{ once: true }}
             variants={fadeInUp}
           >
-            <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-[0_2px_24px_rgba(34,211,238,0.3)]">
+            <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-900 to-indigo-900 bg-clip-text text-transparent">
               Our Core Services
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
@@ -604,7 +604,7 @@ export default function Home() {
             viewport={{ once: true }}
             variants={fadeInUp}
           >
-            <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-900 to-indigo-900 bg-clip-text text-transparent">
               Why Choose Dev Flink?
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -647,7 +647,7 @@ export default function Home() {
             viewport={{ once: true }}
             variants={fadeInUp}
           >
-            <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-900 to-indigo-900 bg-clip-text text-transparent">
               Success Stories
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -707,7 +707,7 @@ export default function Home() {
             viewport={{ once: true }}
             variants={fadeInUp}
           >
-            <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent drop-shadow-[0_2px_24px_rgba(34,211,238,0.3)]">
+            <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-900 via-indigo-900 to-blue-800 bg-clip-text text-transparent">
               Technologies We Use
             </h2>
             <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
@@ -769,7 +769,7 @@ export default function Home() {
             viewport={{ once: true }}
             variants={fadeInUp}
           >
-            <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-900 to-indigo-900 bg-clip-text text-transparent">
               Our Development Process
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -813,7 +813,7 @@ export default function Home() {
             viewport={{ once: true }}
             variants={fadeInUp}
           >
-            <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-900 to-indigo-900 bg-clip-text text-transparent">
               What Our Clients Say
             </h2>
             <p className="text-xl text-gray-300">
