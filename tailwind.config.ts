@@ -16,7 +16,7 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'gradient-blue': 'linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #3730a3 100%)',
+        'gradient-blue': 'linear-gradient(135deg, #2992FD 0%, #A9D0FD 50%, #2992FD 100%)',
         'gradient-purple': 'linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%)',
         'gradient-dark': 'radial-gradient(ellipse 80% 80% at 50% -20%, rgba(120, 119, 198, 0.3), transparent), linear-gradient(180deg, #0a0a0f 0%, #0f0f23 50%, #1a1a2e 100%)',
         'gradient-mesh': 'radial-gradient(at 40% 20%, hsla(228, 100%, 74%, 1) 0px, transparent 50%), radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 1) 0px, transparent 50%), radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 1) 0px, transparent 50%)',
@@ -27,14 +27,19 @@ const config: Config = {
         sm: 'calc(var(--radius) - 4px)',
       },
       boxShadow: {
-        'glow': '0 0 10px rgba(59, 130, 246, 0.2), 0 0 20px rgba(59, 130, 246, 0.1)',
-        'glow-lg': '0 0 20px rgba(59, 130, 246, 0.3), 0 0 40px rgba(6, 182, 212, 0.2)',
+        'glow': '0 0 10px rgba(41, 146, 253, 0.2), 0 0 20px rgba(41, 146, 253, 0.1)',
+        'glow-lg': '0 0 20px rgba(41, 146, 253, 0.3), 0 0 40px rgba(169, 208, 253, 0.2)',
         'glow-purple': '0 0 10px rgba(139, 92, 246, 0.2), 0 0 20px rgba(139, 92, 246, 0.1)',
         'dark': '0 25px 50px -12px rgba(0, 0, 0, 0.8)',
         'glass': '0 8px 32px rgba(0, 0, 0, 0.3)',
-        'neon': '0 0 5px theme(colors.blue.400), 0 0 20px theme(colors.blue.400), 0 0 35px theme(colors.blue.400)',
+        'neon': '0 0 5px #2992FD, 0 0 20px #2992FD, 0 0 35px #A9D0FD',
       },
       colors: {
+        'logo-blue': {
+          'deep': '#2992FD',
+          'sky': '#A9D0FD',
+          'white': '#FEFEFE',
+        },
         'light-blue': {
           400: '#60a5fa',
           500: '#3b82f6',

@@ -408,25 +408,25 @@ export default function Home() {
             </span>
           </motion.div>
           <motion.h1
-            className="text-5xl sm:text-7xl md:text-8xl font-black mb-6 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent leading-tight"
+            className="text-5xl sm:text-7xl md:text-8xl font-black mb-6 bg-gradient-to-r from-[#2992FD] to-[#A9D0FD] bg-clip-text text-transparent leading-tight"
             variants={fadeInUp}
             custom={1}
           >
-            We Build <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent">Future-Ready</span> Software Without Borders
+            We Build <span className="bg-gradient-to-r from-[#A9D0FD] to-[#2992FD] bg-clip-text text-transparent">Future-Ready</span> Software Without Borders
           </motion.h1>
           <motion.p
             className="text-xl md:text-3xl font-medium mb-8 text-gray-100 tracking-wide max-w-4xl mx-auto"
             variants={fadeInUp}
             custom={2}
           >
-            Global software development company delivering <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent font-semibold">innovative digital solutions</span> worldwide.
+            Global software development company delivering <span className="bg-gradient-to-r from-[#2992FD] to-[#A9D0FD] bg-clip-text text-transparent font-semibold">innovative digital solutions</span> worldwide.
           </motion.p>
           <motion.p
             className="text-lg md:text-xl font-light mb-10 text-gray-200 tracking-wide leading-relaxed max-w-4xl mx-auto"
             variants={fadeInUp}
             custom={3}
           >
-            At Dev Flink, we design and develop world-class digital solutions that empower businesses to grow beyond limits. From custom software and mobile apps to AI-powered automation, SaaS platforms, and web development, we bring your vision to life with secure, scalable, and innovative technology.
+            At Dev Flink, we design and develop world-class digital solutions that empower businesses to grow beyond limits. From custom software and mobile apps to AI-powered automation, SaaS platforms, and web development, we bring your vision to life with <span className="bg-gradient-to-r from-[#A9D0FD] to-[#2992FD] bg-clip-text text-transparent font-semibold">secure, scalable, and innovative</span> technology.
           </motion.p>
           {/* CTA Buttons */}
           <motion.div
@@ -468,9 +468,9 @@ export default function Home() {
                 custom={6 + index}
               >
                 <span className="mb-2">
-                  <stat.icon className="h-10 w-10 text-blue-400 group-hover:text-cyan-400 transition-colors duration-300" />
+                  <stat.icon className="h-10 w-10 text-[#2992FD] group-hover:text-[#A9D0FD] transition-colors duration-300" />
                 </span>
-                <div className="text-3xl font-black bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent mb-2">{stat.number}</div>
+                <div className="text-3xl font-black bg-gradient-to-r from-[#2992FD] to-[#A9D0FD] bg-clip-text text-transparent mb-2">{stat.number}</div>
                 <div className="text-gray-100 font-semibold text-sm text-center">{stat.label}</div>
               </motion.div>
             ))}
@@ -503,6 +503,7 @@ export default function Home() {
             variants={fadeInUp}
           >
             <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-900 to-indigo-900 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-[#2992FD] to-[#A9D0FD] bg-clip-text text-transparent">
               Our Core Services
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
@@ -531,9 +532,10 @@ export default function Home() {
                   </div>
                   <div>
                     <CardTitle className="text-2xl text-white group-hover:text-blue-400 transition-colors">
+                    <CardTitle className="text-2xl text-white group-hover:text-[#2992FD] transition-colors">
                       {service.title}
                     </CardTitle>
-                    <div className="text-blue-400 font-bold text-lg">{service.price}</div>
+                    <div className="text-[#2992FD] font-bold text-lg">{service.price}</div>
                   </div>
                 </div>
                 <CardDescription className="text-gray-300 text-base leading-relaxed mb-4">
@@ -541,7 +543,7 @@ export default function Home() {
                 </CardDescription>
                 <div className="flex flex-wrap gap-2 mb-6">
                   {service.features.map((feature, idx) => (
-                    <span key={idx} className="flex items-center bg-white/10 text-blue-200 px-3 py-1 rounded-full text-xs font-medium">
+                    <span key={idx} className="flex items-center bg-white/10 text-[#A9D0FD] px-3 py-1 rounded-full text-xs font-medium">
                       <CheckCircle className="h-4 w-4 text-green-400 mr-1" />
                       {feature}
                     </span>
@@ -574,6 +576,7 @@ export default function Home() {
             variants={fadeInUp}
           >
             <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-900 to-indigo-900 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-[#2992FD] to-[#A9D0FD] bg-clip-text text-transparent">
               Why Choose Dev Flink?
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -592,7 +595,7 @@ export default function Home() {
                 custom={index}
               >
                 <div className="bg-gradient-blue rounded-full w-16 h-16 flex items-center justify-center mb-4 shadow-lg">
-                  <feature.icon className="h-10 w-10 text-blue-400" />
+                  <feature.icon className="h-10 w-10 text-[#FEFEFE]" />
                 </div>
                 <CardTitle className="text-xl text-white mb-2">{feature.title}</CardTitle>
                 <CardDescription className="text-gray-300">{feature.description}</CardDescription>
@@ -617,6 +620,7 @@ export default function Home() {
             variants={fadeInUp}
           >
             <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-900 to-indigo-900 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-[#2992FD] to-[#A9D0FD] bg-clip-text text-transparent">
               Success Stories
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -650,7 +654,7 @@ export default function Home() {
                   <p className="text-gray-300 my-4">{study.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {study.tech.map((tech, idx) => (
-                      <Badge key={idx} variant="outline" className="border-blue-400/30 text-blue-300">
+                      <Badge key={idx} variant="outline" className="border-[#2992FD]/30 text-[#A9D0FD]">
                         {tech}
                       </Badge>
                     ))}
@@ -677,6 +681,7 @@ export default function Home() {
             variants={fadeInUp}
           >
             <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-900 via-indigo-900 to-blue-800 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-[#2992FD] via-[#A9D0FD] to-[#2992FD] bg-clip-text text-transparent">
               Technologies We Use
             </h2>
             <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
@@ -708,16 +713,17 @@ export default function Home() {
                 style={{ minHeight: 90, maxWidth: 100 }}
               >
                 <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-14 h-14 bg-cyan-400/20 blur-2xl rounded-full pointer-events-none group-hover:opacity-80 opacity-60 transition-opacity"></div>
+                <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-14 h-14 bg-[#A9D0FD]/20 blur-2xl rounded-full pointer-events-none group-hover:opacity-80 opacity-60 transition-opacity"></div>
                 <img
                   src={tech.logo}
                   alt={tech.name + " logo"}
-                  className="h-7 md:h-9 w-auto mb-2 drop-shadow-[0_2px_8px_rgba(34,211,238,0.2)]"
+                  className="h-7 md:h-9 w-auto mb-2 drop-shadow-[0_2px_8px_rgba(41,146,253,0.2)]"
                   style={{ filter: tech.name === "Next.js" ? "invert(1)" : undefined }}
                 />
-                <span className="text-white font-medium text-xs md:text-sm text-center drop-shadow-[0_2px_8px_rgba(34,211,238,0.15)]">
+                <span className="text-white font-medium text-xs md:text-sm text-center drop-shadow-[0_2px_8px_rgba(169,208,253,0.15)]">
                   {tech.name}
                 </span>
-                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400/60 via-cyan-400/40 to-purple-400/60 blur-sm opacity-80 pointer-events-none"></div>
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#2992FD]/60 via-[#A9D0FD]/40 to-[#2992FD]/60 blur-sm opacity-80 pointer-events-none"></div>
               </motion.div>
             ))}
           </motion.div>
@@ -739,6 +745,7 @@ export default function Home() {
             variants={fadeInUp}
           >
             <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-900 to-indigo-900 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-[#2992FD] to-[#A9D0FD] bg-clip-text text-transparent">
               Our Development Process
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -757,9 +764,9 @@ export default function Home() {
                 custom={index}
               >
                 <div className="bg-gradient-blue rounded-full w-16 h-16 flex items-center justify-center mb-4 shadow-lg">
-                  <step.icon className="h-8 w-8 text-white" />
+                  <step.icon className="h-8 w-8 text-[#FEFEFE]" />
                 </div>
-                <div className="text-3xl font-bold text-blue-400 mb-2">{step.step}</div>
+                <div className="text-3xl font-bold text-[#2992FD] mb-2">{step.step}</div>
                 <CardTitle className="text-lg text-white">{step.title}</CardTitle>
                 <CardDescription className="text-gray-300 mt-2">{step.description}</CardDescription>
               </motion.div>
@@ -783,6 +790,7 @@ export default function Home() {
             variants={fadeInUp}
           >
             <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-900 to-indigo-900 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-[#2992FD] to-[#A9D0FD] bg-clip-text text-transparent">
               What Our Clients Say
             </h2>
             <p className="text-xl text-gray-300">
@@ -800,6 +808,7 @@ export default function Home() {
               <CardContent className="p-12">
                 <div className="text-center">
                   <Quote className="h-12 w-12 text-blue-400 mx-auto mb-6" />
+                 <Quote className="h-12 w-12 text-[#2992FD] mx-auto mb-6" />
                   <motion.p
                     className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed italic"
                     key={currentTestimonial}
@@ -816,7 +825,7 @@ export default function Home() {
                     ></div>
                     <div className="text-left">
                       <div className="text-white font-bold text-lg">{testimonials[currentTestimonial].name}</div>
-                      <div className="text-blue-300">{testimonials[currentTestimonial].role}</div>
+                      <div className="text-[#A9D0FD]">{testimonials[currentTestimonial].role}</div>
                       <div className="text-gray-400 text-sm">{testimonials[currentTestimonial].company}</div>
                     </div>
                   </div>
@@ -826,7 +835,7 @@ export default function Home() {
                         key={index}
                         onClick={() => setCurrentTestimonial(index)}
                         className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                          index === currentTestimonial ? 'bg-blue-400' : 'bg-gray-600 hover:bg-gray-500'
+                          index === currentTestimonial ? 'bg-[#2992FD]' : 'bg-gray-600 hover:bg-gray-500'
                         }`}
                         aria-label={`Show testimonial ${index + 1}`}
                       />
@@ -869,7 +878,7 @@ export default function Home() {
                   { icon: Shield, label: "ISO Certified", value: "Quality Assured" }
                 ].map((item, index) => (
                   <div key={index} className="flex items-center space-x-3">
-                    <item.icon className="h-8 w-8 text-blue-400" />
+                    <item.icon className="h-8 w-8 text-[#2992FD]" />
                     <div>
                       <div className="text-white font-semibold">{item.label}</div>
                       <div className="text-gray-400 text-sm">{item.value}</div>
@@ -900,7 +909,7 @@ export default function Home() {
                     <div key={index} className="bg-white/10 rounded-lg p-4 text-center hover:bg-white/20 transition-colors">
                       <div className="text-2xl mb-2">{office.flag}</div>
                       <div className="text-white font-semibold">{office.city}</div>
-                      <div className="text-blue-100 text-sm">{office.country}</div>
+                      <div className="text-[#A9D0FD] text-sm">{office.country}</div>
                     </div>
                   ))}
                 </div>
