@@ -530,7 +530,6 @@ export default function Home() {
                     <service.icon className="h-8 w-8 text-white" />
                   </div>
                   <div>
-                    <CardTitle className="text-2xl text-white group-hover:text-blue-400 transition-colors">
                     <CardTitle className="text-2xl text-white group-hover:text-[#2992FD] transition-colors">
                       {service.title}
                     </CardTitle>
