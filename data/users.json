@@ -1,0 +1,11 @@
+[
+  {
+    "id": "1",
+    "email": "admin@devflink.com",
+    "name": "Admin User",
+    "password_hash": "$2b$12$phcTjovgxcubaFxbV2FtgOOD/gRFstUmvbiqt1V0PAJocIqQm3sxS",
+    "role": "admin",
+    "created_at": "2025-09-16T05:46:11.648Z",
+    "updated_at": "2025-09-16T05:46:11.648Z"
+  }
+]
